@@ -1,7 +1,6 @@
 package anaels.com.quote.api;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -47,19 +46,11 @@ public class FavQsApiHelper {
     public interface OnPageRecovered {
         void onPageRecovered(QuotePage quotePage);
     }
+    public interface OnNoMoreResult {
+        void onNoMoreResult();
+    }
     public interface OnError {
         void onError();
-    }
-
-    /**
-     * Make an API call to get the first quote page from an author
-     * @param context the context
-     * @param author the author
-     * @param onPageRecovered the callback that will fire if the page is recovered
-     * @param onError the callback that will fire if an error occurs
-     */
-    public static void getQuoteByAuthor(Context context, String author, OnPageRecovered onPageRecovered, OnError onError) {
-        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,null, onPageRecovered, onError);
     }
 
     /**
@@ -69,10 +60,24 @@ public class FavQsApiHelper {
      * @param page the page number
      * @param onPageRecovered the callback that will fire if the page is recovered
      * @param onError the callback that will fire if an error occurs
+     * @param onNoMoreResult the callback that will fire if there is no more result to load
      */
-    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered, OnError onError) {
+    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered,final OnNoMoreResult onNoMoreResult, OnError onError) {
         String strPage = String.valueOf(page);
-        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered, onError);
+        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered,onNoMoreResult, onError);
+    }
+
+    /**
+     * Make an API call to get a specific quote page from an author
+     * @param context the context
+     * @param author the author
+     * @param page the page number
+     * @param onPageRecovered the callback that will fire if the page is recovered
+     * @param onNoMoreResult the callback that will fire if there is no more result to load
+     */
+    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered, final OnNoMoreResult onNoMoreResult) {
+        String strPage = String.valueOf(page);
+        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered,onNoMoreResult, null);
     }
 
     /**
@@ -82,29 +87,35 @@ public class FavQsApiHelper {
      * @param filterType the filter type
      * @param page the page number
      * @param onPageRecovered the callback that will fire if the page is recovered
+     * @param onNoMoreResult the callback that will fire if there is no more result to load
      * @param onError the callback that will fire if an error occurs
      */
-    private static void getQuoteByFilter(final Context context, String filter, String filterType, String page, final OnPageRecovered onPageRecovered, final OnError onError) {
+    private static void getQuoteByFilter(final Context context, String filter, String filterType, String page, final OnPageRecovered onPageRecovered, final OnNoMoreResult onNoMoreResult, final OnError onError) {
         if (queueVolley == null) {
             queueVolley = Volley.newRequestQueue(context);
         }
         StringRequest requestQuote = new StringRequest(com.android.volley.Request.Method.GET, getUrlQuoteByFilter(filterType,filter,page), new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("JSONReponse", response);
                 Type returnType = new TypeToken<QuotePage>() {
                 }.getType();
                 QuotePage pageResult = SerializeHelper.deserializeJson(response, returnType);
-                if (pageResult != null) {
+                if (pageResult != null && pageResult.getQuotes() != null && pageResult.getQuotes().size()>2) {
                     onPageRecovered.onPageRecovered(pageResult);
-                } else {
-                    onError.onError();
+                } else if (pageResult != null && pageResult.getQuotes() != null && pageResult.getQuotes().size()==1) { // It means that there is no quote left to load
+                    onNoMoreResult.onNoMoreResult();
+                } else{
+                    if (onError != null) {
+                        onError.onError();
+                    }
                 }
             }
         }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                onError.onError();
+                if (onError != null) {
+                    onError.onError();
+                }
                 Toast.makeText(context, R.string.error_load, Toast.LENGTH_LONG).show();
             }
         }) {
