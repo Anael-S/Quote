@@ -16,6 +16,7 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
+import anaels.com.quote.BuildConfig;
 import anaels.com.quote.R;
 import anaels.com.quote.api.model.QuotePage;
 
@@ -37,7 +38,7 @@ public class FavQsApiHelper {
 
     //HEADER
     private static final String HEADER_KEY_AUTH = "Authorization";
-    private static final String API_KEY = "TODO";
+    private static final String API_KEY = BuildConfig.API_KEY;
     private static final String HEADER_VALUE_AUTH = "Token token="  + API_KEY;
 
     /**
