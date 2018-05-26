@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Quote</string>
+
+    <string name="error_load">An error occurred, please try again</string>
+</resources>
