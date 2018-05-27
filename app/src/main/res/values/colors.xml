@@ -7,4 +7,6 @@
     <color name="colorTransparent">#00000000</color>
     <color name="colorTransparentBlack">#80000000</color>
     <color name="textColor">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGold">#ffbf00</color>
 </resources>

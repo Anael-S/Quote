@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import anaels.com.quote.api.FavQsApiHelper;
 import anaels.com.quote.api.model.Quote;
 import anaels.com.quote.api.model.QuotePage;
+import anaels.com.quote.notification.NotificationHelper;
 import anaels.com.quote.ui.QuoteAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,6 +53,24 @@ public class MainActivity extends AppCompatActivity {
 
         //Init the ads
         initAds();
+    }
+
+    /**
+     * MENU
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_settings, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.actionNotificationSettings) {
+            NotificationHelper.createAndShowNotificationSettingDialog(mActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initScrollListener() {
