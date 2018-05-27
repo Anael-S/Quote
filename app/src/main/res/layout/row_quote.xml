@@ -38,7 +38,8 @@
                 android:layout_toStartOf="@+id/endQuote"
                 android:text="@string/lorem_ipsum_long"
                 android:textColor="@color/textColor"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_quote"/>
 
             <ImageView
                 android:id="@+id/endQuote"
@@ -64,6 +65,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
+                    android:textSize="@dimen/text_size_author"
                     android:layout_marginStart="@dimen/margin_start_footer"
                     android:text="@string/lorem_ipsum"
                     android:textColor="@color/textColor"
