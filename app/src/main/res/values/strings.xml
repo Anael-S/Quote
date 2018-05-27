@@ -3,5 +3,7 @@
 
     <string name="no_more_result">No more result to load</string>
     <string name="error_load">An error occurred, please try again</string>
+    <string name="lorem_ipsum">>Lorem Ipsum is simply</string>
+    <string name="lorem_ipsum_small">>Lorem</string>
     <string name="lorem_ipsum_long">Lorem Ipsum is simply dummy text of the printisum is simply dummy text of the printing andsum is simply dummy text of the printing andsum is simply dummy text of the printing andsum is simply dummy text of the printing andng and typesetting industry. Lorem Ipsum has been the industrys</string>
 </resources>

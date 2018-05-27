@@ -6,6 +6,7 @@
     <dimen name="size_button_share">30dp</dimen>
     <dimen name="padding_quote">7dp</dimen>
     <dimen name="small_padding_quote">5dp</dimen>
-    <dimen name="margin_start_author">5dp</dimen>
+    <dimen name="margin_start_footer">5dp</dimen>
     <dimen name="size_quote">25dp</dimen>
+    <integer name="max_tag_displayed">1</integer>
 </resources>

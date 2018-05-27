@@ -38,7 +38,7 @@
                 android:layout_toStartOf="@+id/endQuote"
                 android:text="@string/lorem_ipsum_long"
                 android:textColor="@color/textColor"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/endQuote"
@@ -63,19 +63,24 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/margin_start_author"
-                    android:text="Author"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/margin_start_footer"
+                    android:text="@string/lorem_ipsum"
                     android:textColor="@color/textColor"
-                    android:textStyle="bold" />
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/textViewHashtag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="#Hahtags #Hahtags"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/textViewAuthor"
+                    android:layout_toStartOf="@+id/imageButtonFacebook"
+                    android:gravity="center"
+                    android:text="#Hahtags"
+                    android:layout_marginStart="@dimen/margin_start_footer"
                     android:textColor="@color/textColor"
-                    android:textStyle="italic" />
+                   />
 
                 <ImageButton
                     android:id="@+id/imageButtonFacebook"

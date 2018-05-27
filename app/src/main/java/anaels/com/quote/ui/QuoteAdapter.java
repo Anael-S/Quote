@@ -33,11 +33,12 @@ public class QuoteAdapter extends BaseAdapter {
     @BindView(R.id.imageButtonTwitter)
     ImageButton imageButtonTwitter;
 
-    private static int MAX_TAG_DISPLAYED = 2;
+    private static int MAX_TAG_DISPLAYED;
 
     public QuoteAdapter(Activity activity, ArrayList<Quote> quoteList) {
         this.activity = activity;
         this.quoteList = quoteList;
+        MAX_TAG_DISPLAYED = activity.getResources().getInteger(R.integer.max_tag_displayed);
     }
 
     @Override
@@ -69,7 +70,7 @@ public class QuoteAdapter extends BaseAdapter {
             //Quote
             textviewQuote.setText(currentQuote.getBody());
             //Author
-            textViewAuthor.setText(currentQuote.getAuthor());
+            textViewAuthor.setText("-"+currentQuote.getAuthor());
             //Tags
             if (currentQuote.getTags() != null && !currentQuote.getTags().isEmpty()) {
                 String tagsStr = "#";
