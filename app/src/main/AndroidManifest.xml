@@ -7,14 +7,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/quote_icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".notification.NotificationService"/>
+        <service android:name=".notification.NotificationService" />
 
-        <receiver android:name=".notification.NotificationScheduler"/>
+        <receiver android:name=".notification.NotificationScheduler" />
 
         <receiver
             android:name=".notification.DeviceBootReceiver"
