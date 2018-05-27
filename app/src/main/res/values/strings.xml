@@ -6,4 +6,9 @@
     <string name="lorem_ipsum">>Lorem Ipsum is simply</string>
     <string name="lorem_ipsum_small">>Lorem</string>
     <string name="lorem_ipsum_long">Lorem Ipsum is simply dummy text of the printisum is simply dummy text of the printing andsum is simply dummy text of the printing andsum is simply dummy text of the printing andsum is simply dummy text of the printing andng and typesetting industry. Lorem Ipsum has been the industrys</string>
+
+
+    <string name="app_id_admob">ca-app-pub-8725338676350366~1266717585</string>
+    <string name="id_pub_banner">ca-app-pub-8725338676350366/8514652211</string>
+
 </resources>

@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.ArrayList;
 
 import anaels.com.quote.api.FavQsApiHelper;
@@ -43,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Init the scroll to load more quote
         initScrollListener();
+
+        //Init the ads
+        initAds();
     }
 
     private void initScrollListener() {
@@ -84,5 +91,17 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(listViewQuote, R.string.no_more_result, Snackbar.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void initAds(){
+        //Ad
+        MobileAds.initialize(this, getString(R.string.app_id_admob));
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().
+                addTestDevice("51CE1F2EACEE1C8EB4FBA9B4F0F2098F") //Phone
+                .addTestDevice("3FA0ACCC8A4E195EE4C1BD13BD8BECED") //S2
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR) //Emulator
+                .build();
+        mAdView.loadAd(adRequest);
     }
 }

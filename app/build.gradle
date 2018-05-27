@@ -16,6 +16,11 @@ android {
         versionName "1.0"
         // A valid key will need to be entered
         buildConfigField("String", "API_KEY", API_KEY)
+        multiDexEnabled true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        jumboMode true
     }
     buildTypes {
         release {
@@ -35,4 +40,6 @@ dependencies {
     compile 'com.android.volley:volley:+'
     compile 'com.jakewharton:butterknife:8.8.1'
     compile 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.google.android.gms:play-services-ads:10.2.6'
+    compile 'com.google.firebase:firebase-core:10.2.6'
 }
