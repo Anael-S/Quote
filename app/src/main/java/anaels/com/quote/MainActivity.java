@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initAds(){
+    private void initAds() {
         //Ad
         MobileAds.initialize(this, getString(R.string.app_id_admob));
         AdView mAdView = (AdView) findViewById(R.id.adView);
@@ -134,12 +133,12 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
     }
 
-    private void startLoadingAnimation(){
+    private void startLoadingAnimation() {
         loader.setVisibility(View.VISIBLE);
         loader.animate();
     }
 
-    private void stopLoadingAnimation(){
+    private void stopLoadingAnimation() {
         loader.setVisibility(View.GONE);
     }
 }
