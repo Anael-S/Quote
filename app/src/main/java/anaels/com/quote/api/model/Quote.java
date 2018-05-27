@@ -140,4 +140,15 @@ public class Quote {
         this.context = context;
     }
 
+    public String getShareMessage(){
+        String messageToShare = "";
+        messageToShare = "\"" + getBody() + "\"" + " -" + getAuthor();
+        if (getTags() != null && !getTags().isEmpty()){
+            for (String lTag : getTags()){
+                messageToShare += " #"+lTag;
+            }
+        }
+        return messageToShare;
+    }
+
 }

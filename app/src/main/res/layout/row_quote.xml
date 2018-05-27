@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@+id/textViewAuthor"
-                    android:layout_toStartOf="@+id/imageButtonFacebook"
+                    android:layout_toStartOf="@+id/imageButtonShare"
                     android:gravity="center"
                     android:text="#Hahtags"
                     android:layout_marginStart="@dimen/margin_start_footer"
@@ -83,18 +83,13 @@
                    />
 
                 <ImageButton
-                    android:id="@+id/imageButtonFacebook"
+                    android:id="@+id/imageButtonShare"
                     android:layout_width="@dimen/size_button_share"
                     android:layout_height="@dimen/size_button_share"
-                    android:layout_toStartOf="@+id/imageButtonTwitter"
-                    android:background="@drawable/ic_facebook" />
-
-                <ImageButton
-                    android:id="@+id/imageButtonTwitter"
-                    android:layout_width="@dimen/size_button_share"
-                    android:layout_height="@dimen/size_button_share"
+                    android:layout_margin="@dimen/margin_share"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/ic_twitter" />
+                    android:background="@drawable/ic_share" />
+
 
             </RelativeLayout>
         </RelativeLayout>

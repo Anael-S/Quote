@@ -2,12 +2,12 @@ package anaels.com.quote.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,10 +28,8 @@ public class QuoteAdapter extends BaseAdapter {
     TextView textViewAuthor;
     @BindView(R.id.textViewHashtag)
     TextView textViewHashtag;
-    @BindView(R.id.imageButtonFacebook)
-    ImageButton imageButtonFacebook;
-    @BindView(R.id.imageButtonTwitter)
-    ImageButton imageButtonTwitter;
+    @BindView(R.id.imageButtonShare)
+    ImageButton imageButtonShare;
 
     private static int MAX_TAG_DISPLAYED;
 
@@ -86,28 +84,25 @@ public class QuoteAdapter extends BaseAdapter {
             }
         }
 
-        imageButtonFacebook.setOnClickListener(new View.OnClickListener() {
+        //Share button
+        imageButtonShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareFacebook(currentQuote);
-            }
-        });
-
-        imageButtonTwitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                shareTwitter(currentQuote);
+                shareQuote(currentQuote);
             }
         });
 
         return rowView;
     }
 
-    private void shareFacebook(Quote quote) {
-        //TODO
-    }
+    private void shareQuote(Quote quote) {
+        Intent shareCaptionIntent = new Intent(Intent.ACTION_SEND);
+        shareCaptionIntent.setType("text/*");
 
-    private void shareTwitter(Quote quote) {
-        //TODO
+        String messageToShare = quote.getShareMessage();
+        shareCaptionIntent.putExtra(Intent.EXTRA_TEXT, messageToShare);
+        shareCaptionIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.app_name));
+
+        activity.startActivity(Intent.createChooser(shareCaptionIntent,"Share with"));
     }
 }
