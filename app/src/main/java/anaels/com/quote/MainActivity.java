@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     //UI
     @BindView(R.id.listViewQuotes)
     ListView listViewQuote;
+    @BindView(R.id.loader)
+    ImageView loader;
 
     private ArrayList<Quote> quoteList = new ArrayList<>();
 
@@ -93,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadQuotes(int pageNumber) {
+        startLoadingAnimation();
         FavQsApiHelper.getQuoteByAuthor(this, getString(R.string.author_name), pageNumber, new FavQsApiHelper.OnPageRecovered() {
             @Override
             public void onPageRecovered(QuotePage quotePage) {
@@ -102,10 +108,16 @@ public class MainActivity extends AppCompatActivity {
                     listViewQuote.setAdapter(adapterListView);
                     listViewQuote.setSelection(positionToScrollTo);
                     isLoading = false;
-                    if (quotePage.isLastPage()){
+                    if (quotePage.isLastPage()) {
                         stillResultToLoad = false;
                     }
                 }
+                stopLoadingAnimation();
+            }
+        }, new FavQsApiHelper.OnError() {
+            @Override
+            public void onError() {
+                stopLoadingAnimation();
             }
         });
     }
@@ -120,5 +132,14 @@ public class MainActivity extends AppCompatActivity {
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR) //Emulator
                 .build();
         mAdView.loadAd(adRequest);
+    }
+
+    private void startLoadingAnimation(){
+        loader.setVisibility(View.VISIBLE);
+        loader.animate();
+    }
+
+    private void stopLoadingAnimation(){
+        loader.setVisibility(View.GONE);
     }
 }

@@ -9,5 +9,6 @@
     <dimen name="margin_start_footer">5dp</dimen>
     <dimen name="size_quote">25dp</dimen>
     <dimen name="margin_share">5dp</dimen>
+    <dimen name="size_loader">50dp</dimen>
     <integer name="max_tag_displayed">1</integer>
 </resources>

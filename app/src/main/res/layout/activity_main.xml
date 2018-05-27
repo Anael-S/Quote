@@ -23,4 +23,15 @@
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/id_pub_banner" />
+
+    <ImageView
+        android:id="@+id/loader"
+        android:layout_width="@dimen/size_loader"
+        android:layout_height="@dimen/size_loader"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/loading"
+        android:tint="@color/textColor"
+        android:visibility="gone"
+        />
 </RelativeLayout>
