@@ -11,7 +11,7 @@
         android:layout_margin="@dimen/margin_share"
         android:gravity="center"
         android:text="@string/explanation_notification"
-        android:textColor="@color/textColor" />
+        android:textColor="@color/colorGold" />
 
     <RelativeLayout
         android:id="@+id/layoutSettingsNotification"
@@ -29,14 +29,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_author"
             android:layout_marginStart="@dimen/margin_start_footer"
+            android:layout_margin="@dimen/margin_start_footer"
             android:text="@string/notification_settings"
-            android:textColor="@color/textColor" />
+            android:textColor="@color/colorGold" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/switchNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_start_footer"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/margin_start_footer"/>

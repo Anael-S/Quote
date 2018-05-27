@@ -68,7 +68,7 @@
                     android:textSize="@dimen/text_size_author"
                     android:layout_marginStart="@dimen/margin_start_footer"
                     android:text="@string/lorem_ipsum"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorAccent"
                     android:textStyle="italic" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:gravity="center"
                     android:text="#Hahtags"
                     android:layout_marginStart="@dimen/margin_start_footer"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorLightGray"
                    />
 
                 <ImageButton
@@ -90,8 +90,7 @@
                     android:layout_height="@dimen/size_button_share"
                     android:layout_margin="@dimen/margin_share"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/ic_share" />
-
+                    android:background="@drawable/ic_share"/>
 
             </RelativeLayout>
         </RelativeLayout>
