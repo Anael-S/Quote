@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="anaels.com.quote">
+    package="anaels.com.quoteghandi">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="anaels.com.quoteghandi.MainActivity"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTop">
             <intent-filter>
@@ -22,12 +22,12 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".notification.NotificationService" />
+        <service android:name="anaels.com.quoteghandi.notification.NotificationService" />
 
-        <receiver android:name=".notification.NotificationScheduler" />
+        <receiver android:name="anaels.com.quoteghandi.notification.NotificationScheduler" />
 
         <receiver
-            android:name=".notification.DeviceBootReceiver"
+            android:name="anaels.com.quoteghandi.notification.DeviceBootReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

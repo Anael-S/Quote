@@ -1,4 +1,4 @@
-package anaels.com.quote.api;
+package anaels.com.quoteghandi.api;
 
 import android.util.Log;
 

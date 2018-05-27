@@ -1,5 +1,5 @@
 
-package anaels.com.quote.api.model;
+package anaels.com.quoteghandi.api.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package anaels.com.quote.ui;
+package anaels.com.quoteghandi.ui;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import anaels.com.quote.R;
-import anaels.com.quote.api.model.Quote;
+import anaels.com.quoteghandi.R;
+import anaels.com.quoteghandi.api.model.Quote;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

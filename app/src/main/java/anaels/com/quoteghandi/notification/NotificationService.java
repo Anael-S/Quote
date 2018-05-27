@@ -1,4 +1,4 @@
-package anaels.com.quote.notification;
+package anaels.com.quoteghandi.notification;
 
 import android.app.PendingIntent;
 import android.app.Service;
@@ -9,11 +9,11 @@ import android.support.v4.app.NotificationManagerCompat;
 
 import java.util.Random;
 
-import anaels.com.quote.MainActivity;
-import anaels.com.quote.R;
-import anaels.com.quote.api.FavQsApiHelper;
-import anaels.com.quote.api.model.Quote;
-import anaels.com.quote.api.model.QuotePage;
+import anaels.com.quoteghandi.MainActivity;
+import anaels.com.quoteghandi.R;
+import anaels.com.quoteghandi.api.FavQsApiHelper;
+import anaels.com.quoteghandi.api.model.Quote;
+import anaels.com.quoteghandi.api.model.QuotePage;
 
 public class NotificationService extends Service {
 

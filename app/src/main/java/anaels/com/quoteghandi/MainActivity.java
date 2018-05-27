@@ -1,4 +1,4 @@
-package anaels.com.quote;
+package anaels.com.quoteghandi;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,11 +16,11 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
-import anaels.com.quote.api.FavQsApiHelper;
-import anaels.com.quote.api.model.Quote;
-import anaels.com.quote.api.model.QuotePage;
-import anaels.com.quote.notification.NotificationHelper;
-import anaels.com.quote.ui.QuoteAdapter;
+import anaels.com.quoteghandi.api.FavQsApiHelper;
+import anaels.com.quoteghandi.api.model.Quote;
+import anaels.com.quoteghandi.api.model.QuotePage;
+import anaels.com.quoteghandi.notification.NotificationHelper;
+import anaels.com.quoteghandi.ui.QuoteAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
