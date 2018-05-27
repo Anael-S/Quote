@@ -46,9 +46,6 @@ public class FavQsApiHelper {
     public interface OnPageRecovered {
         void onPageRecovered(QuotePage quotePage);
     }
-    public interface OnNoMoreResult {
-        void onNoMoreResult();
-    }
     public interface OnError {
         void onError();
     }
@@ -60,11 +57,10 @@ public class FavQsApiHelper {
      * @param page the page number
      * @param onPageRecovered the callback that will fire if the page is recovered
      * @param onError the callback that will fire if an error occurs
-     * @param onNoMoreResult the callback that will fire if there is no more result to load
      */
-    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered,final OnNoMoreResult onNoMoreResult, OnError onError) {
+    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered, OnError onError) {
         String strPage = String.valueOf(page);
-        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered,onNoMoreResult, onError);
+        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered, onError);
     }
 
     /**
@@ -73,11 +69,10 @@ public class FavQsApiHelper {
      * @param author the author
      * @param page the page number
      * @param onPageRecovered the callback that will fire if the page is recovered
-     * @param onNoMoreResult the callback that will fire if there is no more result to load
      */
-    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered, final OnNoMoreResult onNoMoreResult) {
+    public static void getQuoteByAuthor(Context context, String author, int page, final OnPageRecovered onPageRecovered) {
         String strPage = String.valueOf(page);
-        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered,onNoMoreResult, null);
+        getQuoteByFilter(context, author, FILTER_TYPE_AUTHOR,strPage, onPageRecovered,null);
     }
 
     /**
@@ -87,10 +82,9 @@ public class FavQsApiHelper {
      * @param filterType the filter type
      * @param page the page number
      * @param onPageRecovered the callback that will fire if the page is recovered
-     * @param onNoMoreResult the callback that will fire if there is no more result to load
      * @param onError the callback that will fire if an error occurs
      */
-    private static void getQuoteByFilter(final Context context, String filter, String filterType, String page, final OnPageRecovered onPageRecovered, final OnNoMoreResult onNoMoreResult, final OnError onError) {
+    private static void getQuoteByFilter(final Context context, String filter, String filterType, String page, final OnPageRecovered onPageRecovered, final OnError onError) {
         if (queueVolley == null) {
             queueVolley = Volley.newRequestQueue(context);
         }
@@ -102,8 +96,6 @@ public class FavQsApiHelper {
                 QuotePage pageResult = SerializeHelper.deserializeJson(response, returnType);
                 if (pageResult != null && pageResult.getQuotes() != null && pageResult.getQuotes().size()>2) {
                     onPageRecovered.onPageRecovered(pageResult);
-                } else if (pageResult != null && pageResult.getQuotes() != null && pageResult.getQuotes().size()==1) { // It means that there is no quote left to load
-                    onNoMoreResult.onNoMoreResult();
                 } else{
                     if (onError != null) {
                         onError.onError();

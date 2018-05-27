@@ -29,10 +29,19 @@ public class NotificationHelper {
 
         switchNotification.setChecked(isNotificationEnabled(activity));
 
+        if (isNotificationEnabled(activity)){
+            NotificationScheduler.scheduleNotificationsUpdates(activity);
+        }
+
         switchNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setEnableNotification(activity, isChecked);
+                if (isChecked){
+                    NotificationScheduler.scheduleNotificationsUpdates(activity);
+                } else {
+                    NotificationScheduler.cancelNotificationSchedule(activity);
+                }
             }
         });
 
@@ -50,8 +59,8 @@ public class NotificationHelper {
         editor.apply();
     }
 
-    public static boolean isNotificationEnabled(Activity activity) {
-        SharedPreferences sharedPreferences = activity.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+    public static boolean isNotificationEnabled(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean(KEY_ENABLE_NOTIFICATION, false);
     }
 }

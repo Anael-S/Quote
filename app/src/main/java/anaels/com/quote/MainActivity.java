@@ -2,7 +2,6 @@ package anaels.com.quote;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -94,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadQuotes(int pageNumber) {
-        FavQsApiHelper.getQuoteByAuthor(this, "Albert+Einstein", pageNumber, new FavQsApiHelper.OnPageRecovered() {
+        FavQsApiHelper.getQuoteByAuthor(this, getString(R.string.author_name), pageNumber, new FavQsApiHelper.OnPageRecovered() {
             @Override
             public void onPageRecovered(QuotePage quotePage) {
                 if (quotePage != null) {
@@ -103,13 +102,10 @@ public class MainActivity extends AppCompatActivity {
                     listViewQuote.setAdapter(adapterListView);
                     listViewQuote.setSelection(positionToScrollTo);
                     isLoading = false;
+                    if (quotePage.isLastPage()){
+                        stillResultToLoad = false;
+                    }
                 }
-            }
-        }, new FavQsApiHelper.OnNoMoreResult() {
-            @Override
-            public void onNoMoreResult() {
-                stillResultToLoad = false;
-                Snackbar.make(listViewQuote, R.string.no_more_result, Snackbar.LENGTH_LONG).show();
             }
         });
     }

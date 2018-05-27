@@ -26,7 +26,7 @@ public class QuotePage {
         this.page = page;
     }
 
-    public Boolean getLastPage() {
+    public Boolean isLastPage() {
         return lastPage;
     }
 
