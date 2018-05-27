@@ -1,4 +1,4 @@
-package anaels.com.quote.api;
+package anaels.com.quotemarktwain.api;
 
 import android.util.Log;
 

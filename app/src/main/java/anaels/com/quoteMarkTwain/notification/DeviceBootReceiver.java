@@ -1,4 +1,4 @@
-package anaels.com.quote.notification;
+package anaels.com.quotemarktwain.notification;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

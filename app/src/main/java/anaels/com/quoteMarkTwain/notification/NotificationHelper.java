@@ -1,15 +1,14 @@
-package anaels.com.quote.notification;
+package anaels.com.quotemarktwain.notification;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.widget.SwitchCompat;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.CompoundButton;
 
-import anaels.com.quote.R;
+import anaels.com.quotemarktwain.R;
 
 /**
  * Handle the notification settings

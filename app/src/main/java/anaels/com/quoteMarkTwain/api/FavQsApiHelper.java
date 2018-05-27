@@ -1,4 +1,4 @@
-package anaels.com.quote.api;
+package anaels.com.quotemarktwain.api;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -15,9 +15,9 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-import anaels.com.quote.BuildConfig;
-import anaels.com.quote.R;
-import anaels.com.quote.api.model.QuotePage;
+import anaels.com.quotemarktwain.BuildConfig;
+import anaels.com.quotemarktwain.R;
+import anaels.com.quotemarktwain.api.model.QuotePage;
 
 /**
  * Helper to communicate with FavQs API, see https://favqs.com/api

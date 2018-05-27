@@ -1,4 +1,4 @@
-package anaels.com.quote;
+package anaels.com.quotemarktwain;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,11 +16,11 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 
-import anaels.com.quote.api.FavQsApiHelper;
-import anaels.com.quote.api.model.Quote;
-import anaels.com.quote.api.model.QuotePage;
-import anaels.com.quote.notification.NotificationHelper;
-import anaels.com.quote.ui.QuoteAdapter;
+import anaels.com.quotemarktwain.api.FavQsApiHelper;
+import anaels.com.quotemarktwain.api.model.Quote;
+import anaels.com.quotemarktwain.api.model.QuotePage;
+import anaels.com.quotemarktwain.notification.NotificationHelper;
+import anaels.com.quotemarktwain.ui.QuoteAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

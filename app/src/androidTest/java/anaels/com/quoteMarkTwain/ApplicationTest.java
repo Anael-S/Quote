@@ -1,4 +1,4 @@
-package anaels.com.quote;
+package anaels.com.quotemarktwain;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

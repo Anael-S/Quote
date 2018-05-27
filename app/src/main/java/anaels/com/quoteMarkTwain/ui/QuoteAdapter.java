@@ -1,4 +1,4 @@
-package anaels.com.quote.ui;
+package anaels.com.quotemarktwain.ui;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import anaels.com.quote.R;
-import anaels.com.quote.api.model.Quote;
+import anaels.com.quotemarktwain.R;
+import anaels.com.quotemarktwain.api.model.Quote;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

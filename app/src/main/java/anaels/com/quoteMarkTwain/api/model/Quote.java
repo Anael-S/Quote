@@ -1,5 +1,5 @@
 
-package anaels.com.quote.api.model;
+package anaels.com.quotemarktwain.api.model;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
